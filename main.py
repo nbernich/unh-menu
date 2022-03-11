@@ -33,24 +33,23 @@ def generate():
     
     # Live Menu
     elif params.get("location") not in LOCATIONS:
-        return {"error":"Invalid Location"}, 400
+        return {"error":"Invalid location"}, 400
 
     else:
         words = []
         req = requests.get(LOCATIONS.get(params["location"]))
-        if not req.status_code == 200: return {"error":f"Couln't get menu."}, 400
+        if not req.status_code == 200: return {"error":"Couln't get menu."}, 400
         for item in BeautifulSoup(req.content, "html.parser").find_all(class_="shortmenurecipes"):
             for word in item.text.split():
                 words.append(word)
 
-    if not words: return {"error":f"No menu today, try \"Sample\" location."}, 400
+    if not words: return {"error":"No menu today, try \"Sample\" location."}, 400
     wordcloud = WordCloud(
         width=1080,
         height=720,
         background_color=params.get("color") or "white",
         min_font_size=10
     ).generate(" ".join(words))
-    wordcloud.to_file("sample.png")
     return {"generated":wordcloud.to_svg()}, 200
 
 @app.errorhandler(400)
