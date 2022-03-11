@@ -1,0 +1,47 @@
+
+body {
+    background-color: #b6b6b6;
+    color: #353535;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 2.75rem;
+    margin-top: .9rem;
+    margin-bottom: .6rem;
+}
+
+img {
+    object-fit: contain;
+}
+
+td {
+    padding-right: 1.2rem;
+    padding-bottom: 1rem;
+}
+
+#header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+#left-header {
+    grid-column: 1;
+    margin-left: 2rem;
+}
+
+#right-header {
+    grid-column: 2;
+    margin-left: 1.5rem;
+}
+
+#logo {
+    height: 10rem;
+    width: 10rem;
+}
+
+#display {
+    margin-left:2rem;
+    color: #ff0000;
+}

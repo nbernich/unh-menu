@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UNH Menu Cloud</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+         <!-- Embeds -->
+         <meta name="title" content="UNH Menu Cloud">
+         <meta property="og:type" content="website">
+         <meta property="og:url" content="https://unh-menu.herokuapp.com">
+         <meta property="og:title" content="UNH Menu Cloud">
+         <meta property="og:description" content="Generates word clouds from UNH dining menus">
+         <meta property="og:image" content="https://raw.githubusercontent.com/2nq/unh-menu/main/static/sample.png">
+         <meta property="twitter:card" content="summary_large_image">
+         <meta property="twitter:url" content="https://unh-menu.herokuapp.com">
+         <meta property="twitter:title" content="UNH Menu Cloud">
+         <meta property="twitter:description" content="Generates word clouds from UNH dining menus">
+         <meta property="twitter:image" content="https://raw.githubusercontent.com/2nq/unh-menu/main/static/sample.png">
+    </head>
+    <body>
+        <div id="header">
+            <div id="left-header">
+                <img id="logo" src="{{url_for('static', filename='logo.png')}}"/>
+            </div>
+            <div id="right-header">
+                <h1>Word Cloud Generator</h1>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="color">Background:</label>
+                            <input type="color" name="color" id="color" class="param"/>
+                        </td>
+                        <td>
+                            <label for="location">Location:</label>
+                            <select name="location" id="location" class="param">
+                                <option value="hoco">Hoco</option>
+                                <option value="philly">Philly</option>
+                                <option value="sample">Sample Data</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" id="submit" onclick="generate()" value="Generate"/>
+            </div>
+        </div>
+        </br></br>
+        <div id="display"></div>
+        <script src="{{url_for('static', filename='script.js')}}"></script>
+    </body>
+</html>
